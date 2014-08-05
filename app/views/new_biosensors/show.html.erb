@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag "appstyle" %>
+<%= stylesheet_link_tag "tablestyle" %> 
+ 
+<p id="notice"><%= notice %></p>
+<h2>Displaying New Biosensor: <%= @new_biosensor.sensor_name %> </h2>
+<table> 
+  <thead>
+    <tr>
+      <th>Sensor Target Type</th>
+      <th> Specificity </th>
+      <th> Specificity Htm</th>
+      <th> Sensor Name </th>
+      <th> Sensor Name Htm</th>
+      <th> Sensor Type </th>
+      <th> Analysis Technique </th>
+      <th> IV Properties</th>
+      <th> Organism </th>
+      <th> Binding Protein </th>
+      <th> Fluorophore </th>
+      <th> PubMed ID </th>
+      <th> PI Name </th>
+      <th> Sequence </th>
+      <th> AddGene URL</th>
+    </tr> 
+  </thead> 
+  <tbody>
+    <tr> 
+       <td><%= @new_biosensor.sensor_target_type %></td>
+       <td><%= @new_biosensor.specificity %></td>
+       <td><%= @new_biosensor.specificity_htm %></td>
+       <td><%= @new_biosensor.sensor_name %></td>
+       <td><%= @new_biosensor.sensor_name_htm %></td>
+       <td><%= @new_biosensor.sensor_type %></td>
+       <td><%= @new_biosensor.anal_tech %></td>
+       <td><%= @new_biosensor.iv_props %></td>
+       <td><%= @new_biosensor.organism %></td>
+       <td><%= @new_biosensor.binding_protein %></td>
+       <td><%= @new_biosensor.fluorophore %></td>
+       <td><%= @new_biosensor.pub_med_id %></td>
+	<td><%= @new_biosensor.pi_name %></td>
+       <td><%= @new_biosensor.sequence %></td>
+       <td><%= @new_biosensor.addgene_url %></td>
+    </tr>
+  </tbody> 
+</table> 
+
+<br>
+<strong><%= link_to 'Add Another Biosensor', new_new_biosensor_path %></strong> <br> 
+ <br>
+<%= link_to 'Edit', edit_new_biosensor_path(@new_biosensor) %> |
+<%= link_to 'Back', new_biosensors_path %>

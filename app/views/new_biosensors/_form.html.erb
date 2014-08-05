@@ -1,0 +1,83 @@
+<%= form_for(@new_biosensor) do |f| %>
+  <% if @new_biosensor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_biosensor.errors.count, "error") %> prohibited this new_biosensor from being saved:</h2>
+
+      <ul>
+      <% @new_biosensor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <table>
+    <tr>
+      <td> <%= f.label :sensor_target_type %>  :  </td>
+      <td> <%= f.text_field :sensor_target_type, size: "50"  %></td> 
+    </tr>
+   <tr>
+     <td><%= f.label :specificity %>  :  </td>
+     <td><%= f.text_field :specificity, size: "50" %> </td>
+   </tr>   
+   <tr>
+      <td><%= f.label :specificity_htm %>  : </td>
+      <td><%= f.text_field :specificity_htm, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :sensor_name %>  : </td>
+      <td><%= f.text_field :sensor_name, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :sensor_name_htm %>  : </td>
+      <td><%= f.text_field :sensor_name_htm, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :sensor_type %>  : </td>
+      <td><%= f.text_field :sensor_type, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :anal_tech %>  : </td>
+      <td><%= f.text_area :anal_tech, size: "39x2" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :iv_props %>  : </td>
+      <td><%= f.text_field :iv_props, size: "50"  %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :organism %>  : </td>
+      <td><%= f.text_field :organism, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :binding_protein %>  : </td>
+      <td><%= f.text_field :binding_protein, size: "50" %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :fluorophore %>  : </td>
+      <td><%= f.text_field :fluorophore, size: "50"  %></td>
+    </tr>
+   <tr>
+      <td><%= f.label :pub_med_id %>  : </td>
+      <td><%= f.text_field :pub_med_id, size: "50" %></td>
+    </tr>
+   <tr>
+     <td> <%= f.label :pi_name %>  : </td>
+     <td><%= f.text_field :pi_name, size: "50"  %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :sequence %>  : </td>
+      <td><%= f.text_field :sequence, size: "50" %> </td>
+    </tr>
+   
+    <tr>
+      <td><%= f.label :addgene_url %>  : </td>
+      <td><%= f.url_field :addgene_url, size: "50" %></td> 
+    </tr>
+    <tr> 
+     <td> <%= f.submit %></td>
+    </tr>
+    </table>
+  </div>
+<% end %>

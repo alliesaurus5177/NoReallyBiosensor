@@ -1,0 +1,26 @@
+body {
+  text-align: center;  
+}
+#import_excel {
+  width: 25%; 
+  margin-left: 37%;
+  background-color: rgb(205, 220, 199);
+  border: 5px solid; 
+  border-color: rgb(4, 113, 8); 
+}
+
+#user_nav{
+  text-align: right;
+}
+
+#form_container{
+  width: 50%; 
+  margin-left: 25%; 
+  margin-top: 5px; 
+  background-color: rgb(238, 238, 238);
+    
+  border: 5px solid; 
+  border-color: rgb(4, 113, 8);
+  font-weight: bold;   
+ 
+}

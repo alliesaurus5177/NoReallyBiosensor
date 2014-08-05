@@ -1,0 +1,61 @@
+<h1>Molecular sensors for nutrients, metabolites, and messengers:</h1>
+<h2> Tools for understanding the regulation of the metabolome</h2>
+<!-- Google Fonts --> 
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Link to stylesheet that handles the table -->
+<%= stylesheet_link_tag "tablestyle.css" %> 
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Sensor Target Type</th>
+      <th>Specificity</th>
+      <!--<th>Specificity Htm</th>-->
+      <th>Sensor Name</th>
+     <!-- <th>Sensor Name Htm</th>-->
+      <th>Sensor Type</th>
+      <th>Analysis Technique</th>
+      <th>IV Properties</th>
+      <th>Organism</th>
+      <th>Binding Protein</th>
+      <th>Fluorophore</th>
+     <!--Doesn't actually need to be displayed <th>Pub Med ID</th>-->
+      <th>PI Name</th>
+      <th>Sequence</th>
+      <th> AddGene </th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @new_biosensor.each do |new_biosensor| %>
+      <tr>
+        <td> <%= new_biosensor.sensor_target_type.html_safe %> </td>
+        <td> <%= new_biosensor.specificity_htm.html_safe %> </td>
+        <td> <%= new_biosensor.sensor_name_htm.html_safe %> </td>
+        <td> <%= new_biosensor.sensor_type %> </td>
+        <td> <%= new_biosensor.anal_tech %> </td>
+        <td> <%= new_biosensor.iv_props %> </td>
+        <td> <%= new_biosensor.organism %> </td>
+        <td> <%= new_biosensor.binding_protein %> </td>
+        <td> <%= new_biosensor.fluorophore %> </td>
+        <td> <%= new_biosensor.pi_name %> </td>
+        <td> <%= new_biosensor.sequence %></td>
+        <!-- TODO: is there a better way to do thise -->
+	<% if new_biosensor.addgene_url.present? %> 
+	  <td> <%= link_to 'available', new_biosensor.addgene_url %> </td>
+	<% else %> 
+	   <td> </td>
+        <% end %> 
+        <td><%= link_to 'Edit', edit_new_biosensor_path(new_biosensor) %></td>
+        <td><%= link_to 'Destroy', new_biosensor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

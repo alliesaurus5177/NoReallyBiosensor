@@ -1,0 +1,2 @@
+module NewBiosensorsHelper
+end

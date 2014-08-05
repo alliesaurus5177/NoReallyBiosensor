@@ -1,0 +1,21 @@
+html {
+  font-size: 1px; 
+}
+
+body {
+  width: 95%;
+  margin-left: 2.5%;  
+  font-size 18rem; 
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif; 
+}
+#user_nav {
+  text-align: right;
+}
+
+p.notice, .alert {
+  color: red; 
+  text-align: right; 
+}

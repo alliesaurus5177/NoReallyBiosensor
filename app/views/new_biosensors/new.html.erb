@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "addnewstyle" %> 
+
+<h1>Add a New Biosensor</h1>
+<div id="import_excel">
+  <!--Attempt at allowing users to import Excel spreadsheets-->
+  <!-- railscasts.com/episodes/396-importing-csv-and-ecxel -->   
+  <h3> Import Biosensors via Excel</h3>
+    <%= form_tag import_new_biosensors_path, multipart: true do %>
+      <%= file_field_tag :file %><br>
+      <%= submit_tag "Import"%><br>
+    <%end %>
+ <!-- End of Excel stuff -->
+</div>
+<%= link_to 'Back', new_biosensors_path %> 
+<div id="form_container">
+  <%= render 'form' %>
+</div> 
+<%= link_to 'Back', new_biosensors_path %>

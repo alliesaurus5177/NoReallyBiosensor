@@ -1,0 +1,81 @@
+
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Link to stylesheet that handles the table -->
+<%= stylesheet_link_tag "tablestyle.css" %>
+<!-- General stylesheet -->
+<%= stylesheet_link_tag "appstyle.css" %>
+
+
+<div class="header">
+  <h1>Molecular sensors for nutrients, metabolites, and messengers:</h1>
+  <h2> Tools for understanding the regulation of the metabolome</h2>
+</div> 
+
+<div class="addBiosensors">
+  <% if user_signed_in? %>
+    <%= link_to 'Add a new biosensor', new_new_biosensor_path %>
+  <% end %>
+</div>
+<table>
+  <thead>
+    <tr>
+    <!-- sortable takes in two parameters. First one is the actual name of the column, the second is what is displayed.-->
+    <!-- Sortable is written in the Application Helper-->
+    <th><%= sortable "sensor_target_type" , "Sensor Target Type" %></th>
+      <th><%= sortable "specificity", "Specificity" %></th>
+      <th><%= sortable "sensor_name", "Sensor Name" %> </th>
+      <th><%= sortable  "sensor_type", "Sensor Type" %> </th>
+      <th><%= sortable "anal_tech", "Analysis Technique" %></th>
+      <th><%= sortable  "iv_props", "IV Properties"  %></th>
+      <th><%= sortable  "organism", "Organism"  %> </th>
+      <th><%= sortable  "binding_protein", "Binding Protein" %></th>
+      <th><%= sortable  "fluorophore", "Fluorophore" %> </th>
+      <th><%= sortable  "pi_name" , "PI Name"  %></th>
+      <th><%= sortable  "sequence", "Sequence"  %> </th>
+      <th><%= sortable  "addgene_url", "Addgene Link" %> </th>
+      <% if current_user.present? %> 
+        <th> Edit </th> 
+        <th> Destroy </th> 
+      <%end%> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @new_biosensor.each do |new_biosensor| %>
+      <tr>
+        <td> <%= new_biosensor.sensor_target_type %> </td>
+        <td> <%= new_biosensor.specificity_htm.html_safe %> </td>
+        <td> <%= new_biosensor.sensor_name_htm.html_safe %> </td>
+        <td> <%= new_biosensor.sensor_type %> </td>
+        <td> <%= new_biosensor.anal_tech %> </td>
+        <td> <%= new_biosensor.iv_props %> </td>
+        <td> <%= new_biosensor.organism %> </td>
+        <td> <%= new_biosensor.binding_protein %> </td>
+        <td> <%= new_biosensor.fluorophore %> </td>
+        <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/<%= new_biosensor.pub_med_id %>"> <%= new_biosensor.pi_name %> </a></td>
+        <% if new_biosensor.sequence.present? %>
+           <td> <%= link_to 'Sequence', :target => "_blank" %>
+           </td>
+        <% else %> 
+           <td> </td> 
+        <% end %> 
+        <!-- TODO: is there a better way to do thise -->
+	<% if new_biosensor.addgene_url.present? %> 
+	  <td> <%= link_to 'available', new_biosensor.addgene_url %> </td>
+	<% else %> 
+	   <td> </td>
+        <% end %> 
+       <!-- Only admins can edit or destroy existing data --> 
+        <% if current_user.present? %>
+          <td><%= link_to 'Edit', edit_new_biosensor_path(new_biosensor) %></td>
+          <td><%= link_to 'Destroy', new_biosensor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

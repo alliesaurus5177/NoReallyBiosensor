@@ -1,0 +1,6 @@
+workbook = xlsx_package.workbook
+  workbook.add_worksheet(name: "NewBiosensor") do |sheet|
+    @new_biosensor.each do |biosensor|
+    sheet.add_row[biosensor.sensor_target_type, biosensor.specificity, biosensor.specificity_htm, biosensor.sensor_name, biosensor.sensor_name_htm, biosensor.sensor_type, biosensor.anal_tech, biosensor.iv_props, biosensor.organism, biosensor.binding_protein, biosensor.fluorophore, biosensor.pub_med_id, biosensor.pi_name]
+  end 
+end 

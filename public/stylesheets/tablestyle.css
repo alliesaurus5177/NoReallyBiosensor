@@ -1,0 +1,115 @@
+/*Handles making the table responsive to screen size*/ 
+/*Regular table design for laptop/desktop screens*/
+table{ 
+  width: 100%; 
+  border-collapse: collapse;
+    
+}
+thead th .current{
+ padding-right: 20px; 
+ background-repeat: no-repeat;
+ background-position: right center; 
+}
+thead th .asc{
+  background-image: url(/images/uparrow.png);
+}
+
+thead th .desc{
+  background-image: url(/images/downarrow.png);
+}
+thead th a:visited {
+  color: white;
+}
+
+thead th a:hover {
+  background-color: rgb(4, 113, 8);
+}
+/*Get Table header to scroll with you?*/
+
+/*Colors alternate rows*/
+tr:nth-of-type(odd) {
+  background: rgb(238, 238, 238); /*TODO: Change this color*/ 
+}
+/*Highlights the row you are on*/ 
+tbody tr:hover {
+  background:#BDC3C7; 
+  color: rgb(4, 113, 8); 
+/*  font-weight: bold;*/ 
+}
+
+/*Back to regular table styling*/ 
+th {
+  background: rgb(4, 113, 8);
+  color: rgb(238, 238, 238); 
+  font-weight: bold;  
+}
+
+td, th {
+  padding: 6px; 
+  border: 1px, solid, #ccc; 
+  text-align: center; 
+}
+
+/*Responsive table css found at: css-tricks.com/responsive-data-tables*/
+/*Uses a media query to check if screen is smaller than 760px*/
+@media
+only screen and (max-width: 760px), 
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+/*Force the table to stop acting like one*/
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /*Hide table headers but don't use display:none!*/
+  thead tr {
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+  }
+
+  tr { border: 1px solid rgb(4, 113, 8); }
+  
+
+  tbody td:hover {
+   background-color: white;
+   font-weight: 400; 
+  }
+  td {
+    /*td's will now act like a row*/
+    border: none; 
+    border-bottom: 1px solid rgb(4, 113, 8);
+    position: relative;
+    height: 32px;/*This was the wonky row height!*/ 
+    padding-left: 50%; 
+  }
+
+  td:before /*TODO: Find out exactly what 'before' refers to...*/{
+    /*Act like a whole table header*/
+    position: absolute; 
+    /*Top & Left values mimic padding */ 
+    top: 6px;
+    left: 6px; 
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+    /*Causes the labels to be bold */    
+    font-weight: 600;
+  } 
+
+ /*Label data*/
+  td:nth-of-type(1):before { content: "Sensor Target Type"; }
+  td:nth-of-type(2):before { content: "Specificity"; }
+/*  td:nth-of-type(3):before { content: "Specificity Htm"; }*/
+  td:nth-of-type(3):before { content: "Sensor Name"; }
+/*  td:nth-of-type(5):before { content: "Sensor Name Htm"; }*/
+  td:nth-of-type(4):before { content: "Sensor Type"; }
+  td:nth-of-type(5):before { content: "Analysis Technique"; }
+  td:nth-of-type(6):before { content: "IV Properties"; }
+  td:nth-of-type(7):before { content: "Organism"; }
+  td:nth-of-type(8):before { content: "Binding Protein"; }
+  td:nth-of-type(9):before { content: "Fluorophore"; }
+  td:nth-of-type(10):before { content: "PI Name"; }
+  td:nth-of-type(11):before { content: "Edit"; }
+  td:nth-of-type(12):before { content: "Delete"; }
+ } /*stop complaining!*/

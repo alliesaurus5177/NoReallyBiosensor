@@ -1,0 +1,48 @@
+<!-- Formats data to something prettier for Excel --> 
+<!-- railscasts.com/episodes/362-exporting-csv-and-excel?view=asciicast--> 
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1"> 
+    <Table>
+      <Row> 
+        <cell><Data ss:Type="String">Sensor Target Type</Data></cell>
+        <cell><Data ss:Type="String">Specificity</Data></cell>
+        <cell><Data ss:Type="String">Specificity HTML </Data></cell>
+        <cell><Data ss:Type="String">Sensor Name</Data></cell>
+        <cell><Data ss:Type="String">Sensor Name HTML</Data></cell> 
+        <cell><Data ss:Type="String">Sensor Type</Data></cell>
+        <cell><Data ss:Type="String">Analysis Technique</Data></cell>
+        <cell><Data ss:Type="String">IV Properties</Data></cell>
+        <cell><Data ss:Type="String">Organism</Data></cell>
+        <cell><Data ss:Type="String">Binding Protein</Data></cell>
+        <cell><Data ss:Type="String">Fluorophore</Data></cell>
+        <cell><Data ss:Type="String">Pub Med ID</Data></cell>
+        <cell><Data ss:Type="String">PI Name</Data></cell>
+        <cell><Data ss:Type="String">Edit</Data></cell>
+        <cell><Data ss:Type="String">Delete</Data></cell>
+      </Row> 
+  <% @new_biosensor.each do |new_biosensor| %>
+    <Row> 
+      <Cell><Data ss:Type="String"> <%= new_biosensor.sensor_target_type %> </Data><Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.specificity %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.specificity_htm %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.sensor_name %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.sensor_name_htm  %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.sensor_type %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.anal_tech %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.iv_props %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.organism %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.binding_protein %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.fluorophore %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.pub_med_id %> </Data></Cell>
+      <Cell><Data ss:Type="String"> <%= new_biosensor.pi_name %> </Data></Cell>
+    </Row>
+  <% end %> 
+</Table> 
+</Worksheet>
+</Workbook>
